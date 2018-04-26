@@ -7,8 +7,17 @@
 
 .form-control {
     width: 200px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .container {
-    width: 700px;
+    width: 600px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.img {
+    margin-left: 0;
+    margin-right: 0;
 }
