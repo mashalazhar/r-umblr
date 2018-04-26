@@ -21,3 +21,12 @@
     margin-left: 0;
     margin-right: 0;
 }
+
+.card .card-body .card-title {
+    color: black;
+}
+
+* {
+    border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+}

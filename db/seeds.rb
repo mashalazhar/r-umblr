@@ -3,3 +3,9 @@ User.create(first_name: "Bruce", last_name: "Wayne", email: "batman@dc.com", bir
 User.create(first_name: "T", last_name: "Challa", email: "black_panther@wakanda.com", birthday: 371984)
 User.create(first_name: "Tony", last_name: "Stark", email: "ironman@avengers.com", birthday: 10281996)
 User.create(first_name: " Ororo", last_name: "Munroe", email: "storm@xmen.com", birthday: 1231989)
+
+# Post.create(first_name: "Mashal", last_name: "Azhar", email: "azhar.mashal@gmail.com", birthday: 11291986)
+# Post.create(first_name: "Bruce", last_name: "Wayne", email: "batman@dc.com", birthday: 111990)
+# Post.create(first_name: "T", last_name: "Challa", email: "black_panther@wakanda.com", birthday: 371984)
+# Post.create(first_name: "Tony", last_name: "Stark", email: "ironman@avengers.com", birthday: 10281996)
+# Post.create(first_name: " Ororo", last_name: "Munroe", email: "storm@xmen.com", birthday: 1231989)
