@@ -1,0 +1,14 @@
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: whitesmoke !important;
+}
+
+.form-control {
+    width: 200px;
+}
+
+.container {
+    width: 700px;
+}
