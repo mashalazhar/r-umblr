@@ -22,55 +22,11 @@
 
     <div class="container">
 
-
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">NEW USERS</h5>
-                        <form action="/action_page.php">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="text" placeholder="First Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="text" placeholder="Last Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="integer" class="form-control" id="integer" placeholder="Birthday">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="E-mail Address">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="pwd" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn btn-primary"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">CURRENT USERS</h5>
-                        <form action="/action_page.php">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="E-mail Address">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="pwd" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn btn-primary"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
+<main>
+    <%= yield %>
+</main>
 
 </body>
 
