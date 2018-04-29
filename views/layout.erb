@@ -9,24 +9,28 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-        </div>
-    </div>
-</nav>
-
 <body>
 
-<center><img src="images/rumblr.png" alt="Rumblr Logo" height="120" width="250"></center>
-
+    <div class="navbar">
+    </div>
     <div class="container">
-
+        <div class="py-5 text-center">
+        <a href="/profile"><img class="d-block mx-auto mb-4" src="images/rumblr.png" alt="Rumblr Logo" width="250" height="120"></a>
+        </div>
     </div>
 
-<main>
-    <%= yield %>
-</main>
+
+    <% flash.keys.each do |type| %>
+        <div data-alert class="flash <%= type %> alert-box radius">
+          <%= flash[type] %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+
+
+    <main>
+        <%= yield %>
+    </main>
 
 </body>
 

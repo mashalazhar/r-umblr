@@ -1,8 +1,70 @@
+body {
+    position: relative;
+    height: auto;
+    min-height: 100% !important;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+/* LOGO */
+
+.ml-auto,
+.mx-auto {
+    margin-left: auto !important;
+}
+
+.mr-auto,
+.mx-auto {
+    margin-right: auto !important;
+}
+
+#test {
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    ;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background: black;
+    color: black;
+}
+
+.main {
+    padding: 16px;
+    margin-top: 30px;
+    height: 1500px;
+    /* Used in this example to enable scrolling */
+}
+
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited {
     background-color: whitesmoke !important;
+}
+
+.btn-primary {
+    color: black;
+    border-color: black;
 }
 
 .form-control {
@@ -41,4 +103,11 @@
     text-align: center;
     padding-top: 20px;
     padding-bottom: 15px;
+}
+
+.post-container {
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    color: red;
 }

@@ -17,11 +17,12 @@ get '/' do
 end
 
 get '/profile' do
-    # @user = User.find(session[:id])
+    @user = User.find(session[:id])
     erb :profile # login page for current users
 end
 
 get '/welcome' do 
+    @user = User.find(session[:id])
     erb :welcome # welcome page for new users
 end 
 
@@ -30,9 +31,24 @@ get '/logout' do
     redirect '/home' # bring user back home
 end
 
-get '/delete' do
-    erb :delete
-end 
+get '/edit' do
+    @user_avail = User.find(session[:id])
+    erb :edit
+end
+
+
+put '/users/:id' do
+    @user_avail = User.find(params[:id])
+    @user_avail.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], birthday: params[:birthday], password: params[:password])
+    redirect '/home'
+end
+
+
+delete '/home/:id' do
+    User.destroy(session[:id])
+    redirect '/home'
+end
+
 
 # get '/profile' do 
 #     @users = User.all
@@ -40,15 +56,15 @@ end
 # end
 
 get '/profile/:id' do
-    @current_user = User.find(params[:id])
+    @user = User.find(params[:id])
     erb :homepage
 end
 
-# get '/' do
-#     flash[:notice] = "Hooray, Flash is working!"
-#     binding.pry 
-#     erb :home
-# end
+get '/' do
+    flash[:alert] = "Hooray, Flash is working!"
+    # binding.pry 
+    erb :home
+end
  
 post '/user/profile' do 
     @user = User.find_by(email: params[:email], password: params[:password])   
@@ -67,7 +83,3 @@ post '/user/welcome' do # a user that just created an account via form on home w
     redirect '/welcome' # user is set into the welcome page where they can link into their profile
 end
 
-delete '/users/:id' do
-    User.destroy(params[:id])
-    redirect '/'
-end

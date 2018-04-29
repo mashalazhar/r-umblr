@@ -1,18 +1,28 @@
 <div class="container">
 <div class="row">
 
-    <div class="col-sm-6">
+    <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">EDIT ACCOUNT</h5>
+
+                    will need to edit acount here
+
+                </div>
+            </div>
+        </div>
+
+        <p>
+        <p>
+
+    <div class="col-sm-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">DELETE ACCOUNT</h5>
-
-                <form action="/user/profile" method="POST">
-                    <div class="form-group">
-                        <input name="_method" type="hidden" class="form-control" value="DELETE">
-                    </div>
-                    <button type="submit" class="btn btn-primary"><a href="/"><span class="glyphicon glyphicon-edit"></span> Delete</a></button>
+                <h5 class="card-title">To delete account, click below:</h5>
+                <form action="/" method="POST">
+                <input type="hidden" name="_method" value="DELETE">    
+                    <button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-edit"></span> Delete</button>
                 </form>
-
             </div>
         </div>
     </div>
