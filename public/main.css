@@ -111,3 +111,10 @@ body {
     margin: 0 auto;
     color: red;
 }
+
+.post-container-two {
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    color: red;
+}
