@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: doggydaycare #or whatever your db is called
+
+  production:
+  adapter: postgresql
+  host: <%= ENV['DATABASE_URL'] %> #This is an env variable that Heroku creates for us. Can be found in your settings config vars
