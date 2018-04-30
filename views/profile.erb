@@ -1,9 +1,33 @@
 <div class="container">
 <h1><%= @user.first_name %>'s Posts</h1>
 <p>
-<%= @posts.each do |x| %>
-<%= x.post_title %>
-  <%  end %>
+  <p><%= @user.first_name %> <%= @user.last_name %> | Birthday: <%= @user.birthday %> | Email: <%= @user.email %></p>
+<hr>
+
+<h3>Post Title: </h3>
+<p>(caption goes here) </p>
+<p>(City, Country)</p>
+
+<% if @posts %>
+<% @posts.each do |x| %>
+  <div class="blog-post">
+    <h2 class="blog-post-title"><%= x.post_title %></h2>
+<% end %>
+<% end %>
+
+<hr>
+
+<div class="footer">
+<p><a href="/"><button type="button" class="btn btn-default btn-sm">
+<span class="glyphicon glyphicon-log-out"></span> Log Out</button></a>
+
+<a href="/edit"><button type="button" class="btn btn-default btn-sm">
+<span class="glyphicon glyphicon-edit"></span> Edit</button></a>
+
+<a href="/allposts"><button type="button" class="btn btn-default btn-sm">
+<span class="glyphicon glyphicon-log-out"></span> All Posts</button></a>
+
+</p>
 </div>
 
 <div class="post-container">

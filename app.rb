@@ -45,7 +45,10 @@ end
 
 get '/profile' do
     @user = User.find(session[:id])
-    @posts = Post.find(session[:id])    
+    @posts = Post.where(user_id: session[:id])
+    p ">>>>>>>>>>>>>>>>>>>"
+    p @posts
+    p ">>>>>>>>>>>>>>>>>>>"
     erb :profile # login page for current users
 end
 
@@ -53,12 +56,6 @@ get '/newpost' do
     @user = User.find(session[:id])
     erb :profile
   end
-  
-post '/newpost' do
-    @user = User.find(session[:id])
-    @newpost = Post.create(post_title: params[:post_title], city: params[:city], country: param[:country], post_caption: params[:post_caption], user_id: @user.id)
-    redirect '/profile'
-end
 
 get '/:user/profile' do
     if session[:id] != nil
@@ -101,6 +98,12 @@ post '/profile' do # a user that just created an account via form on home will b
     @newpost = Post.create(post_title: params[:post_title], city: params[:city], country: params[:country], post_caption: params[:post_caption], user_id: @userpost.id )
   #  session[:user_id] = @userpost # they have now created a unique id 
     redirect '/profile' # user is set into the welcome page where they can link into their profile
+end
+
+post '/newpost' do
+    @user = User.find(session[:id])
+    @newpost = Post.create(post_title: params[:post_title], city: params[:city], country: param[:country], post_caption: params[:post_caption], user_id: @user.id)
+    redirect '/profile'
 end
 
 # PUT 
