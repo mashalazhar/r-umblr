@@ -1,9 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-# require 'sinatra/flash'
 require 'rake'
 require 'pg'
-# require 'pry'
 require_relative './models/User'
 require_relative './models/Post'
 
@@ -121,11 +119,3 @@ delete '/home/:id' do
     User.destroy(session[:id]) # will delete user profile for current user
     redirect '/delete'
 end
-
-# FLASH ALERT VIA GEM
-
-# get '/' do
-#     flash[:alert] = "Hooray, Flash is working!"
-#     # binding.pry 
-#     erb :home
-# end
