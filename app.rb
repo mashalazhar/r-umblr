@@ -8,7 +8,7 @@ require_relative './models/User'
 require_relative './models/Post'
 
 enable :sessions
-set :database, {adapter: 'postgresql', database: 'rumblr'}
+# set :database, {adapter: 'postgresql', database: 'rumblr'}
 
 # GET
 
