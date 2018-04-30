@@ -21,20 +21,23 @@ get '/welcome' do
     erb :welcome # welcome page for new users
 end 
 
-get '/logout' do
-    session.clear # clear the session
-    redirect '/home' # bring user back home
-end
-
 get '/edit' do
     @user_avail = User.find(session[:id])
     erb :edit
 end
 
-# get '/profile' do 
-#     @posts = Post.all
-#     erb :homepage
-# end
+get '/info' do
+    erb :info
+end
+
+get '/allposts' do
+    erb :allposts
+end
+
+get '/logout' do
+    session.clear # clear the session
+    redirect '/home' # bring user back home
+end
 
 get '/delete' do
     erb :delete
@@ -46,17 +49,6 @@ get '/profile' do
     erb :profile # login page for current users
 end
 
-# get '/profile' do
-#     @user = User.find(params[:id])
-#     erb :allposts
-# end
-
-get '/' do
-    flash[:alert] = "Hooray, Flash is working!"
-    # binding.pry 
-    erb :home
-end
- 
 get '/newpost' do
     @user = User.find(session[:id])
     erb :profile
@@ -68,41 +60,21 @@ post '/newpost' do
     redirect '/profile'
 end
 
-# get '/profile' do
-#     if session[:id] != nil
-#       @user = User.find_by(id: session[:id])
-#     end
-#     @current_user = User.find_by(username: params[:user])
-#     @posts = Post.where(user_id: @current_user.id).order.limit(20)
-#     erb :profile
-# end
-
 get '/:user/profile' do
     if session[:id] != nil
       @user = User.find_by(id: session[:id])
     end
     erb :info
-  end
+end
 
-  get '/info' do
-    erb :info
-  end
-
-  get '/allposts' do
-    erb :allposts
-  end
-
-# get '/profile' do 
-#     @user = User.all
-#     erb :profile
+# get '/profile' do
+#     @post = Post.find(params[:id])
+#     erb :allposts
 # end
 
-# post '/profile' do
-#     if session[:id] != nil
-#       @user = User.find_by(id: session[:id])
-#     end
-#     @posts = Post.all().order.limit(20).offset(20)
-#     erb :profile
+# get '/profile' do 
+#     @posts = Post.all
+#     erb :homepage
 # end
 
 # POST
@@ -142,6 +114,14 @@ end
 # DELETE
 
 delete '/home/:id' do
-    User.destroy(session[:id])
+    User.destroy(session[:id]) # will delete user profile for current user
     redirect '/delete'
 end
+
+# FLASH ALERT VIA GEM
+
+# get '/' do
+#     flash[:alert] = "Hooray, Flash is working!"
+#     # binding.pry 
+#     erb :home
+# end

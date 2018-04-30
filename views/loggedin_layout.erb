@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>R-umblr</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+    </div>
+    <div class="container">
+        <div class="py-5 text-center">
+            <a href="/profile"><img class="d-block mx-auto mb-4" src="images/rumblr.png" alt="Rumblr Logo" width="250" height="120"></a>
+        </div>
+    </div>
+
+    <% flash.keys.each do |type| %>
+        <div data-alert class="flash <%= type %> alert-box radius">
+            <%= flash[type] %>
+            <a href="#" class="close">&times;</a>
+        </div>
+    <% end %>
+
+            <main>
+                <%= yield %>
+            </main>
+
+            <div class="footer">
+                <p><a href="/"><button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-log-out"></span> Log Out</button></a>
+
+                <a href="/edit"><button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-edit"></span> Edit</button></a>
+
+                <a href="/allposts"><button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-log-out"></span> All Posts</button></a></p>
+            </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</html>

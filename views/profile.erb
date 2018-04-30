@@ -1,8 +1,9 @@
 <div class="container">
 <h1><%= @user.first_name %>'s Posts</h1>
 <p>
-<h1><%= @posts %></h1>
-
+<%= @posts.each do |x| %>
+<%= x.post_title %>
+  <%  end %>
 </div>
 
 <div class="post-container">
