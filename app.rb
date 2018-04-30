@@ -46,9 +46,9 @@ end
 get '/profile' do
     @user = User.find(session[:id])
     @posts = Post.where(user_id: session[:id])
-    p ">>>>>>>>>>>>>>>>>>>"
-    p @posts
-    p ">>>>>>>>>>>>>>>>>>>"
+    # p ">>>>>>>>>>>>>>>>>>>"
+    # p @posts
+    # p ">>>>>>>>>>>>>>>>>>>"
     erb :profile # login page for current users
 end
 
