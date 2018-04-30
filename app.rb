@@ -3,7 +3,7 @@ require 'sinatra/activerecord'
 # require 'sinatra/flash'
 require 'rake'
 require 'pg'
-require 'pry'
+# require 'pry'
 require_relative './models/User'
 require_relative './models/Post'
 
