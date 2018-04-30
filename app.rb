@@ -36,8 +36,13 @@ end
 #     erb :homepage
 # end
 
+get '/delete' do
+    erb :delete
+end 
+
 get '/profile' do
     @user = User.find(session[:id])
+    @posts = Post.find(session[:id])    
     erb :profile # login page for current users
 end
 
@@ -63,22 +68,42 @@ post '/newpost' do
     redirect '/profile'
 end
 
-get '/:user' do
+# get '/profile' do
+#     if session[:id] != nil
+#       @user = User.find_by(id: session[:id])
+#     end
+#     @current_user = User.find_by(username: params[:user])
+#     @posts = Post.where(user_id: @current_user.id).order.limit(20)
+#     erb :profile
+# end
+
+get '/:user/profile' do
     if session[:id] != nil
       @user = User.find_by(id: session[:id])
     end
-    @current_user = User.find_by(username: params[:user])
-    @posts = Post.where(user_id: @current_user.id).order.limit(20)
-    erb :profile
+    erb :info
   end
 
-post '/' do
-    if session[:id] != nil
-      @user = User.find_by(id: session[:id])
-    end
-    @posts = Post.all().order.limit(20).offset(20)
-    erb :profile
-end
+  get '/info' do
+    erb :info
+  end
+
+  get '/allposts' do
+    erb :allposts
+  end
+
+# get '/profile' do 
+#     @user = User.all
+#     erb :profile
+# end
+
+# post '/profile' do
+#     if session[:id] != nil
+#       @user = User.find_by(id: session[:id])
+#     end
+#     @posts = Post.all().order.limit(20).offset(20)
+#     erb :profile
+# end
 
 # POST
 
@@ -118,5 +143,5 @@ end
 
 delete '/home/:id' do
     User.destroy(session[:id])
-    redirect '/'
+    redirect '/delete'
 end

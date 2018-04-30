@@ -1,24 +1,17 @@
 <div class="container">
 <h1><%= @user.first_name %>'s Posts</h1>
 <p>
-<p>
-<p>
-(posts go here)
-
-<% @posts.each do |posts| %>
-  <div class="blog-post">
-    <h2 class="blog-post-title"><%= post.post_title %></h2>
-    <p><%= @current_user.first_name %>">
-<% end %>
+<h1><%= @posts %></h1>
 
 </div>
 
 <div class="post-container">
 <form action="/profile" method="POST">
+<label for="exampleFormControlTextarea1">Create a New Post</label>
   <div class="form-group">
     <input name="post_title" type="@newuser.post_title" class="form-control" id="text" placeholder="Post Title">
   </div>
-  
+
   <div class="form-group">
     <input name="city" type="text" class="form-control" id="text" placeholder="City">
   </div>
@@ -28,7 +21,6 @@
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Create a New Post</label>
     <textarea name="post_caption" class="form-control" id="text" rows="3" placeholder="This is your caption."></textarea>
   </div>
 
@@ -36,11 +28,14 @@
 </form>
 </div>
 
-
 <div class="footer">
   <p><a href="/"><button type="button" class="btn btn-default btn-sm">
   <span class="glyphicon glyphicon-log-out"></span> Log Out</button></a>
   
   <a href="/edit"><button type="button" class="btn btn-default btn-sm">
-  <span class="glyphicon glyphicon-edit"></span> Edit</button></a></p>
+  <span class="glyphicon glyphicon-edit"></span> Edit</button></a>
+
+  <a href="/allposts"><button type="button" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-log-out"></span> All Posts</button></a>
+  </p>
 </div>
