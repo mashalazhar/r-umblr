@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: doggydaycare #or whatever your db is called
+  database: rumblr #or whatever your db is called
 
   production:
   adapter: postgresql

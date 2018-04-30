@@ -9,6 +9,7 @@ require_relative './models/Post'
 
 enable :sessions
 # set :database, {adapter: 'postgresql', database: 'rumblr'}
+#DELETE ME LATER
 
 # GET
 
