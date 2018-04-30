@@ -4,18 +4,14 @@
   <p><%= @user.first_name %> <%= @user.last_name %> | Birthday: <%= @user.birthday %> | Email: <%= @user.email %></p>
 <hr>
 
-<h3>Post Title: </h3>
-<p>(caption goes here) </p>
-<p>(City, Country)</p>
-
 <% if @posts %>
-<% @posts.each do |x| %>
-  <div class="blog-post">
-    <h2 class="blog-post-title"><%= x.post_title %></h2>
+  <% @posts.each do |x| %>
+    <h3><%= x.post_title %></h3>
+    <p><%= x.post_caption %></p>
+    <h4><%= x.city %>, <%= x.country %></h4>
+    <hr>
+  <% end %>
 <% end %>
-<% end %>
-
-<hr>
 
 <div class="footer">
 <p><a href="/"><button type="button" class="btn btn-default btn-sm">

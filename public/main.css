@@ -6,6 +6,14 @@ body {
     margin-top: 50px;
 }
 
+h3 {
+    color: gold;
+}
+
+h4 {
+    color: gray;
+}
+
 /* LOGO */
 
 .ml-auto,
