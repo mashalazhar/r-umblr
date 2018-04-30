@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'sinatra/flash'
+# require 'sinatra/flash'
 require 'rake'
 require 'pg'
 require 'pry'
