@@ -1,24 +1,19 @@
-require "sinatra"
-require "sinatra/activerecord"
+require 'sinatra'
+require 'sinatra/activerecord'
 require 'sinatra/flash'
+require 'rake'
+require 'pg'
 require 'pry'
-
 require_relative './models/User'
 require_relative './models/Post'
-# require_relative './models/Tag'
-# require_relative './models/PostTag'
 
 enable :sessions
-
 set :database, {adapter: 'postgresql', database: 'rumblr'}
+
+# GET
 
 get '/' do 
     erb :home # where users can create a new account or login
-end
-
-get '/profile' do
-    @user = User.find(session[:id])
-    erb :profile # login page for current users
 end
 
 get '/welcome' do 
@@ -36,29 +31,20 @@ get '/edit' do
     erb :edit
 end
 
-
-put '/users/:id' do
-    @user_avail = User.find(params[:id])
-    @user_avail.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], birthday: params[:birthday], password: params[:password])
-    redirect '/home'
-end
-
-
-delete '/home/:id' do
-    User.destroy(session[:id])
-    redirect '/home'
-end
-
-
 # get '/profile' do 
-#     @users = User.all
+#     @posts = Post.all
 #     erb :homepage
 # end
 
-get '/profile/:id' do
-    @user = User.find(params[:id])
-    erb :homepage
+get '/profile' do
+    @user = User.find(session[:id])
+    erb :profile # login page for current users
 end
+
+# get '/profile' do
+#     @user = User.find(params[:id])
+#     erb :allposts
+# end
 
 get '/' do
     flash[:alert] = "Hooray, Flash is working!"
@@ -66,6 +52,36 @@ get '/' do
     erb :home
 end
  
+get '/newpost' do
+    @user = User.find(session[:id])
+    erb :profile
+  end
+  
+post '/newpost' do
+    @user = User.find(session[:id])
+    @newpost = Post.create(post_title: params[:post_title], city: params[:city], country: param[:country], post_caption: params[:post_caption], user_id: @user.id)
+    redirect '/profile'
+end
+
+get '/:user' do
+    if session[:id] != nil
+      @user = User.find_by(id: session[:id])
+    end
+    @current_user = User.find_by(username: params[:user])
+    @posts = Post.where(user_id: @current_user.id).order.limit(20)
+    erb :profile
+  end
+
+post '/' do
+    if session[:id] != nil
+      @user = User.find_by(id: session[:id])
+    end
+    @posts = Post.all().order.limit(20).offset(20)
+    erb :profile
+end
+
+# POST
+
 post '/user/profile' do 
     @user = User.find_by(email: params[:email], password: params[:password])   
     if @user != nil # if a user exists (is not nil)
@@ -83,3 +99,24 @@ post '/user/welcome' do # a user that just created an account via form on home w
     redirect '/welcome' # user is set into the welcome page where they can link into their profile
 end
 
+post '/profile' do # a user that just created an account via form on home will be sent to a welcome page
+    @userpost = User.find(session[:id])
+    @newpost = Post.create(post_title: params[:post_title], city: params[:city], country: params[:country], post_caption: params[:post_caption], user_id: @userpost.id )
+  #  session[:user_id] = @userpost # they have now created a unique id 
+    redirect '/profile' # user is set into the welcome page where they can link into their profile
+end
+
+# PUT 
+
+put '/profile/:id' do
+    @user_avail = User.find(params[:id])
+    @user_avail.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], birthday: params[:birthday], password: params[:password])
+    redirect '/profile'
+end
+
+# DELETE
+
+delete '/home/:id' do
+    User.destroy(session[:id])
+    redirect '/'
+end

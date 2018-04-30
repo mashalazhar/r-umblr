@@ -6,8 +6,17 @@
                 <div class="card-body">
                     <h5 class="card-title">EDIT ACCOUNT</h5>
 
-                    will need to edit acount here
+                    <form action="/profile/<%= @user_avail.id %>" method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="text" name="first_name" value="<%= @user_avail.first_name %>">
+                    <input type="text" name="last_name" value="<%= @user_avail.last_name %>">
+                    <input type="text" name="email" value="<%= @user_avail.email %>">
+                    <input type="text" name="birthday" value="<%= @user_avail.birthday %>">
+                    <input type="text" name="password" value="<%= @user_avail.password %>">                    
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Submit Changes</button>
+</form>
 
+      
                 </div>
             </div>
         </div>
@@ -19,7 +28,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">To delete account, click below:</h5>
-                <form action="/" method="POST">
+                <form action="/home/<%= @user_avail.id %>" method="POST">
                 <input type="hidden" name="_method" value="DELETE">    
                     <button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-edit"></span> Delete</button>
                 </form>
